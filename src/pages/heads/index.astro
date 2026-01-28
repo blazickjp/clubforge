@@ -1,0 +1,52 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import headsData from '../../../data/heads.json';
+
+const heads = headsData.club_heads;
+const brands = [...new Set(heads.map(h => h.brand_id))];
+---
+
+<Layout title="Golf Club Heads" description="Browse driver heads from Titleist, TaylorMade, Callaway, PING, and Cobra">
+  <section class="py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="mb-8">
+        <h1 class="text-4xl font-bold mb-4">Club Heads</h1>
+        <p class="text-gray-600">Browse drivers from the top brands. Select one to start building your custom club.</p>
+      </div>
+      
+      {brands.map(brand => (
+        <div class="mb-12">
+          <h2 class="text-2xl font-bold mb-4 capitalize flex items-center gap-2">
+            <span class="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center text-green-700 text-sm font-bold">
+              {brand.charAt(0).toUpperCase()}
+            </span>
+            {brand.replace('_', ' ')}
+          </h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {heads.filter(h => h.brand_id === brand).map(head => (
+              <a 
+                href={`/heads/${head.slug}`}
+                class="bg-white rounded-xl shadow-sm p-6 hover:shadow-md transition-all hover:scale-[1.02] border border-gray-100"
+              >
+                <div class="flex justify-between items-start mb-2">
+                  <h3 class="text-xl font-semibold">{head.model}</h3>
+                  <span class="text-xs bg-gray-100 px-2 py-1 rounded">{head.year}</span>
+                </div>
+                <p class="text-gray-600 text-sm mb-4">{head.description}</p>
+                <div class="flex flex-wrap gap-2 mb-4">
+                  {head.loft_options.map(loft => (
+                    <span class="px-2 py-1 bg-green-50 text-green-700 rounded text-sm font-medium">{loft}°</span>
+                  ))}
+                </div>
+                <div class="flex justify-between items-center text-sm">
+                  <span class="text-gray-500">{head.adjustable ? '✓ Adjustable' : 'Fixed'}</span>
+                  <span class="text-green-600 font-medium">Build with this →</span>
+                </div>
+              </a>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+</Layout>

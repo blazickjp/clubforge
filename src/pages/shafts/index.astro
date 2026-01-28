@@ -1,0 +1,96 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import shaftsData from '../../../data/shafts.json';
+
+const shafts = shaftsData.shafts;
+const brands = [...new Set(shafts.map(s => s.brand))];
+
+const launchColors = {
+  low: 'bg-blue-100 text-blue-700',
+  mid: 'bg-green-100 text-green-700',
+  'mid-low': 'bg-teal-100 text-teal-700',
+  'mid-high': 'bg-yellow-100 text-yellow-700',
+  high: 'bg-orange-100 text-orange-700',
+};
+
+const spinColors = {
+  low: 'bg-blue-100 text-blue-700',
+  mid: 'bg-green-100 text-green-700',
+  'mid-low': 'bg-teal-100 text-teal-700',
+  'mid-high': 'bg-yellow-100 text-yellow-700',
+  high: 'bg-orange-100 text-orange-700',
+};
+---
+
+<Layout title="Golf Shafts" description="Browse premium aftermarket shafts - Fujikura, Mitsubishi, Project X, Graphite Design, and more">
+  <section class="py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="mb-8">
+        <h1 class="text-4xl font-bold mb-4">Golf Shafts</h1>
+        <p class="text-gray-600">Premium aftermarket shafts from top manufacturers. All compatible with major OEM heads.</p>
+      </div>
+
+      <!-- Quick Filter Legend -->
+      <div class="bg-white rounded-lg p-4 mb-8 shadow-sm">
+        <p class="text-sm font-medium text-gray-700 mb-2">Launch Profile Guide:</p>
+        <div class="flex flex-wrap gap-3 text-sm">
+          <span class="px-2 py-1 bg-blue-100 text-blue-700 rounded">Low = Penetrating flight</span>
+          <span class="px-2 py-1 bg-green-100 text-green-700 rounded">Mid = Versatile</span>
+          <span class="px-2 py-1 bg-orange-100 text-orange-700 rounded">High = Max carry</span>
+        </div>
+      </div>
+      
+      {brands.map(brand => (
+        <div class="mb-12">
+          <h2 class="text-2xl font-bold mb-4">{brand}</h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {shafts.filter(s => s.brand === brand).map(shaft => (
+              <a 
+                href={`/shafts/${shaft.slug}`}
+                class="bg-white rounded-xl shadow-sm p-6 hover:shadow-md transition-all hover:scale-[1.01] border border-gray-100"
+              >
+                <div class="flex justify-between items-start mb-3">
+                  <h3 class="text-xl font-semibold">{shaft.model}</h3>
+                  <div class="flex gap-2">
+                    <span class={`px-2 py-1 rounded text-xs font-medium ${launchColors[shaft.launch] || 'bg-gray-100'}`}>
+                      {shaft.launch} launch
+                    </span>
+                    <span class={`px-2 py-1 rounded text-xs font-medium ${spinColors[shaft.spin] || 'bg-gray-100'}`}>
+                      {shaft.spin} spin
+                    </span>
+                  </div>
+                </div>
+                
+                <p class="text-gray-600 text-sm mb-4">{shaft.description}</p>
+                
+                <div class="grid grid-cols-2 gap-4 text-sm">
+                  <div>
+                    <p class="text-gray-500 mb-1">Flex Options</p>
+                    <div class="flex flex-wrap gap-1">
+                      {shaft.flex_options.map(flex => (
+                        <span class="px-2 py-0.5 bg-gray-100 rounded">{flex}</span>
+                      ))}
+                    </div>
+                  </div>
+                  <div>
+                    <p class="text-gray-500 mb-1">Weight Options</p>
+                    <div class="flex flex-wrap gap-1">
+                      {shaft.weight_options.map(weight => (
+                        <span class="px-2 py-0.5 bg-gray-100 rounded">{weight}g</span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+
+                <div class="mt-4 pt-4 border-t flex justify-between items-center text-sm">
+                  <span class="text-gray-500">Tip: {shaft.tip_size}" | Torque: {shaft.torque}°</span>
+                  <span class="text-green-600 font-medium">View details →</span>
+                </div>
+              </a>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+</Layout>

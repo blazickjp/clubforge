@@ -1,0 +1,17 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Builder from '../components/Builder';
+---
+
+<Layout title="Build Your Club" description="Select components to build your custom golf club">
+  <div class="py-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-8">
+        <h1 class="text-3xl font-bold">Club Builder</h1>
+        <p class="text-gray-600 mt-2">Select your components to build a custom club</p>
+      </div>
+      
+      <Builder client:load />
+    </div>
+  </div>
+</Layout>

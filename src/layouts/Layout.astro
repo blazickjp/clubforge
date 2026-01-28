@@ -1,0 +1,91 @@
+---
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = "Build custom golf clubs with price comparison across top retailers" } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title} | ClubForge</title>
+  </head>
+  <body class="bg-gray-50 text-gray-900 min-h-screen">
+    <nav class="bg-white shadow-sm border-b">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between h-16">
+          <div class="flex items-center">
+            <a href="/" class="flex items-center space-x-2">
+              <span class="text-2xl">🏌️</span>
+              <span class="font-bold text-xl text-green-700">ClubForge</span>
+            </a>
+          </div>
+          <div class="flex items-center space-x-8">
+            <a href="/build" class="text-gray-600 hover:text-green-700 font-medium">Build</a>
+            <a href="/heads" class="text-gray-600 hover:text-green-700 font-medium">Heads</a>
+            <a href="/shafts" class="text-gray-600 hover:text-green-700 font-medium">Shafts</a>
+            <a href="/guides" class="text-gray-600 hover:text-green-700 font-medium">Guides</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <main>
+      <slot />
+    </main>
+
+    <footer class="bg-gray-800 text-gray-300 py-12 mt-20">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div>
+            <h3 class="font-bold text-white mb-4">ClubForge</h3>
+            <p class="text-sm">Build custom golf clubs with confidence. Compare prices, check compatibility, save money.</p>
+          </div>
+          <div>
+            <h4 class="font-semibold text-white mb-4">Components</h4>
+            <ul class="space-y-2 text-sm">
+              <li><a href="/heads" class="hover:text-white">Club Heads</a></li>
+              <li><a href="/shafts" class="hover:text-white">Shafts</a></li>
+              <li><a href="/grips" class="hover:text-white">Grips</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="font-semibold text-white mb-4">Brands</h4>
+            <ul class="space-y-2 text-sm">
+              <li><a href="/brands/titleist" class="hover:text-white">Titleist</a></li>
+              <li><a href="/brands/taylormade" class="hover:text-white">TaylorMade</a></li>
+              <li><a href="/brands/callaway" class="hover:text-white">Callaway</a></li>
+              <li><a href="/brands/ping" class="hover:text-white">PING</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="font-semibold text-white mb-4">Resources</h4>
+            <ul class="space-y-2 text-sm">
+              <li><a href="/guides/shaft-fitting" class="hover:text-white">Shaft Fitting Guide</a></li>
+              <li><a href="/guides/compatibility" class="hover:text-white">Compatibility FAQ</a></li>
+              <li><a href="/about" class="hover:text-white">About</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="border-t border-gray-700 mt-8 pt-8 text-sm text-center">
+          <p>&copy; 2024 ClubForge. Not affiliated with any golf equipment manufacturer.</p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
+
+<style is:global>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+  
+  body {
+    font-family: 'Inter', sans-serif;
+  }
+</style>

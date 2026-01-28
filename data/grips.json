@@ -1,0 +1,100 @@
+{
+  "grips": [
+    {
+      "id": "golf-pride-tour-velvet",
+      "brand": "Golf Pride",
+      "model": "Tour Velvet",
+      "size_options": ["undersize", "standard", "midsize", "jumbo"],
+      "color_options": ["black"],
+      "weight_grams": 52,
+      "material": "rubber",
+      "full_name": "Golf Pride Tour Velvet",
+      "slug": "golf-pride-tour-velvet",
+      "description": "Most popular grip on Tour. Consistent all-weather performance."
+    },
+    {
+      "id": "golf-pride-mcc",
+      "brand": "Golf Pride",
+      "model": "MCC (Multi-Compound)",
+      "size_options": ["standard", "midsize"],
+      "color_options": ["black/gray", "black/red", "black/blue"],
+      "weight_grams": 48,
+      "material": "cord/rubber",
+      "full_name": "Golf Pride MCC",
+      "slug": "golf-pride-mcc",
+      "description": "Cord upper for control, rubber lower for comfort. Hybrid performance."
+    },
+    {
+      "id": "golf-pride-z-grip",
+      "brand": "Golf Pride",
+      "model": "Z-Grip",
+      "size_options": ["standard", "midsize"],
+      "color_options": ["black", "white"],
+      "weight_grams": 50,
+      "material": "rubber",
+      "full_name": "Golf Pride Z-Grip",
+      "slug": "golf-pride-z-grip",
+      "description": "Firm feel with aggressive texture. Popular with better players."
+    },
+    {
+      "id": "superstroke-s-tech",
+      "brand": "SuperStroke",
+      "model": "S-Tech",
+      "size_options": ["standard", "midsize", "oversize"],
+      "color_options": ["black", "white", "gray"],
+      "weight_grams": 54,
+      "material": "rubber",
+      "full_name": "SuperStroke S-Tech",
+      "slug": "superstroke-s-tech",
+      "description": "Cross-traction surface pattern. Tacky feel in all conditions."
+    },
+    {
+      "id": "lamkin-crossline",
+      "brand": "Lamkin",
+      "model": "Crossline",
+      "size_options": ["undersize", "standard", "midsize", "jumbo"],
+      "color_options": ["black"],
+      "weight_grams": 50,
+      "material": "rubber",
+      "full_name": "Lamkin Crossline",
+      "slug": "lamkin-crossline",
+      "description": "Classic pattern, firm feel. Durable and consistent."
+    },
+    {
+      "id": "lamkin-utx",
+      "brand": "Lamkin",
+      "model": "UTx",
+      "size_options": ["standard", "midsize"],
+      "color_options": ["gray"],
+      "weight_grams": 53,
+      "material": "cord",
+      "full_name": "Lamkin UTx",
+      "slug": "lamkin-utx",
+      "description": "Full-cord grip for maximum traction. Firm feedback."
+    },
+    {
+      "id": "winn-dri-tac",
+      "brand": "Winn",
+      "model": "Dri-Tac",
+      "size_options": ["standard", "midsize", "oversize"],
+      "color_options": ["black", "gray", "blue", "red"],
+      "weight_grams": 50,
+      "material": "polymer",
+      "full_name": "Winn Dri-Tac",
+      "slug": "winn-dri-tac",
+      "description": "Soft, cushioned feel. Absorbs shock and reduces grip pressure."
+    },
+    {
+      "id": "iomic-sticky",
+      "brand": "IOMIC",
+      "model": "Sticky",
+      "size_options": ["standard", "midsize"],
+      "color_options": ["black", "red", "blue", "orange", "green"],
+      "weight_grams": 50,
+      "material": "elastomer",
+      "full_name": "IOMIC Sticky",
+      "slug": "iomic-sticky",
+      "description": "Unique elastomer material. Tacky feel, vibrant colors."
+    }
+  ]
+}

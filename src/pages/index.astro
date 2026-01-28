@@ -1,0 +1,146 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Custom Golf Club Builder">
+  <!-- Hero Section -->
+  <section class="bg-gradient-to-br from-green-800 to-green-900 text-white py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center">
+        <h1 class="text-5xl font-bold mb-6">
+          Build Your Perfect Club
+        </h1>
+        <p class="text-xl text-green-100 mb-8 max-w-2xl mx-auto">
+          Select compatible components, compare prices across retailers, and build custom clubs like a pro fitter — for free.
+        </p>
+        <a 
+          href="/build" 
+          class="inline-block bg-white text-green-800 font-bold px-8 py-4 rounded-lg text-lg hover:bg-green-50 transition-colors"
+        >
+          Start Building →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works -->
+  <section class="py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl font-bold text-center mb-12">How It Works</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="text-center p-6">
+          <div class="text-4xl mb-4">🎯</div>
+          <h3 class="text-xl font-semibold mb-2">1. Choose Your Head</h3>
+          <p class="text-gray-600">Select from Titleist, TaylorMade, Callaway, PING, and Cobra drivers</p>
+        </div>
+        <div class="text-center p-6">
+          <div class="text-4xl mb-4">⚡</div>
+          <h3 class="text-xl font-semibold mb-2">2. Pick Your Shaft</h3>
+          <p class="text-gray-600">We show only compatible shafts — Ventus, Tensei, HZRDUS, Tour AD & more</p>
+        </div>
+        <div class="text-center p-6">
+          <div class="text-4xl mb-4">💰</div>
+          <h3 class="text-xl font-semibold mb-2">3. Compare Prices</h3>
+          <p class="text-gray-600">See total build cost across 2ndSwing, GlobalGolf, GolfWorks & more</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why ClubForge -->
+  <section class="bg-white py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        <div>
+          <h2 class="text-3xl font-bold mb-6">Why Use ClubForge?</h2>
+          <div class="space-y-4">
+            <div class="flex items-start space-x-3">
+              <span class="text-green-600 text-xl">✓</span>
+              <div>
+                <h4 class="font-semibold">Save $300+ on Fittings</h4>
+                <p class="text-gray-600">Club fitters charge $150-400 for the knowledge we give away free</p>
+              </div>
+            </div>
+            <div class="flex items-start space-x-3">
+              <span class="text-green-600 text-xl">✓</span>
+              <div>
+                <h4 class="font-semibold">Compatibility Guaranteed</h4>
+                <p class="text-gray-600">We only show shafts that fit your head — no guessing, no returns</p>
+              </div>
+            </div>
+            <div class="flex items-start space-x-3">
+              <span class="text-green-600 text-xl">✓</span>
+              <div>
+                <h4 class="font-semibold">Best Price, Every Time</h4>
+                <p class="text-gray-600">Compare prices across retailers instantly</p>
+              </div>
+            </div>
+            <div class="flex items-start space-x-3">
+              <span class="text-green-600 text-xl">✓</span>
+              <div>
+                <h4 class="font-semibold">Share Your Builds</h4>
+                <p class="text-gray-600">Get a unique link to share with friends or your club fitter</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="bg-gray-100 rounded-xl p-8">
+          <div class="text-center">
+            <p class="text-gray-500 mb-2">Average fitting cost</p>
+            <p class="text-4xl font-bold text-gray-400 line-through mb-4">$275</p>
+            <p class="text-gray-500 mb-2">ClubForge price</p>
+            <p class="text-5xl font-bold text-green-600">$0</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Popular Heads -->
+  <section class="py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl font-bold text-center mb-12">Popular Drivers</h2>
+      <div class="grid grid-cols-2 md:grid-cols-5 gap-6">
+        <a href="/heads/titleist-tsr3-driver" class="bg-white rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow text-center">
+          <div class="text-3xl mb-2">🏆</div>
+          <h3 class="font-semibold">Titleist TSR3</h3>
+          <p class="text-sm text-gray-500">Adjustable CG</p>
+        </a>
+        <a href="/heads/taylormade-qi10-driver" class="bg-white rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow text-center">
+          <div class="text-3xl mb-2">⚡</div>
+          <h3 class="font-semibold">TaylorMade Qi10</h3>
+          <p class="text-sm text-gray-500">Carbon Face</p>
+        </a>
+        <a href="/heads/callaway-paradym-driver" class="bg-white rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow text-center">
+          <div class="text-3xl mb-2">🔥</div>
+          <h3 class="font-semibold">Callaway Paradym</h3>
+          <p class="text-sm text-gray-500">360 Carbon</p>
+        </a>
+        <a href="/heads/ping-g430-max-10k-driver" class="bg-white rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow text-center">
+          <div class="text-3xl mb-2">🎯</div>
+          <h3 class="font-semibold">PING G430 Max</h3>
+          <p class="text-sm text-gray-500">10K MOI</p>
+        </a>
+        <a href="/heads/cobra-darkspeed-driver" class="bg-white rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow text-center">
+          <div class="text-3xl mb-2">🐍</div>
+          <h3 class="font-semibold">Cobra Darkspeed</h3>
+          <p class="text-sm text-gray-500">PWR-BRIDGE</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="bg-green-700 text-white py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl font-bold mb-4">Ready to Build Your Driver?</h2>
+      <p class="text-green-100 mb-8">Join thousands of golfers who've built their perfect club</p>
+      <a 
+        href="/build" 
+        class="inline-block bg-white text-green-700 font-bold px-8 py-4 rounded-lg text-lg hover:bg-green-50 transition-colors"
+      >
+        Start Building — It's Free
+      </a>
+    </div>
+  </section>
+</Layout>

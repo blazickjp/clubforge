@@ -1,0 +1,116 @@
+{
+  "adapters": [
+    {
+      "id": "surefit",
+      "brand": "Titleist",
+      "name": "SureFit Hosel",
+      "compatible_models": ["TSR2", "TSR3", "TSR4", "GT2", "GT3", "GT4", "TSi2", "TSi3", "TSi4"],
+      "tip_size": ".335",
+      "adjustable": true,
+      "loft_adjustment": "±1.5°",
+      "lie_adjustment": "±0.75°",
+      "description": "Titleist's adjustable hosel system. Allows independent loft and lie adjustments. Same adapter works across TSR and GT generations.",
+      "purchase_links": {
+        "titleist": "https://www.titleist.com/",
+        "golf_galaxy": "https://www.golfgalaxy.com/"
+      }
+    },
+    {
+      "id": "tip_sleeve",
+      "brand": "TaylorMade",
+      "name": "TaylorMade Tip Sleeve",
+      "compatible_models": ["Qi10", "Qi10 Max", "Qi10 LS", "Stealth 2", "Stealth 2 Plus", "SIM2", "M5", "M6"],
+      "tip_size": ".335",
+      "adjustable": true,
+      "loft_adjustment": "±2°",
+      "lie_adjustment": "Upright setting available",
+      "description": "TaylorMade's loft sleeve system. 12 positions for loft and face angle adjustment. Compatible across recent TaylorMade drivers.",
+      "purchase_links": {
+        "taylormade": "https://www.taylormadegolf.com/",
+        "golf_galaxy": "https://www.golfgalaxy.com/"
+      }
+    },
+    {
+      "id": "optifit",
+      "brand": "Callaway",
+      "name": "OptiFit Hosel",
+      "compatible_models": ["Paradym", "Paradym X", "Paradym Ai Smoke", "Elyte", "Elyte X", "Elyte Tour", "Rogue ST", "Epic"],
+      "tip_size": ".335",
+      "adjustable": true,
+      "loft_adjustment": "±1°",
+      "lie_adjustment": "Neutral/Draw settings",
+      "description": "Callaway's OptiFit system with adjustable loft and lie. Draw setting promotes right-to-left ball flight. Works across Paradym, Ai Smoke, and Elyte families.",
+      "purchase_links": {
+        "callaway": "https://www.callawaygolf.com/",
+        "golf_galaxy": "https://www.golfgalaxy.com/"
+      }
+    },
+    {
+      "id": "ping_adapter",
+      "brand": "PING",
+      "name": "PING Trajectory Tuning",
+      "compatible_models": ["G430 Max 10K", "G430 LST", "G430 SFT", "G425", "G410"],
+      "tip_size": ".335",
+      "adjustable": true,
+      "loft_adjustment": "±1.5°",
+      "lie_adjustment": "Flat/Standard/Upright",
+      "description": "PING's trajectory tuning hosel with 8 positions. Adjusts loft, lie, and face angle. Requires PING wrench tool.",
+      "purchase_links": {
+        "ping": "https://ping.com/",
+        "golf_galaxy": "https://www.golfgalaxy.com/"
+      }
+    },
+    {
+      "id": "myfly",
+      "brand": "Cobra",
+      "name": "MyFly8 with SmartPad",
+      "compatible_models": ["Darkspeed", "Darkspeed Max", "Darkspeed X", "Aerojet", "LTDx"],
+      "tip_size": ".335",
+      "adjustable": true,
+      "loft_adjustment": "±1.5°",
+      "lie_adjustment": "Draw setting",
+      "description": "Cobra's MyFly8 system with 8 adjustable loft settings. SmartPad technology keeps face square at address regardless of loft setting.",
+      "purchase_links": {
+        "cobra": "https://www.cobragolf.com/",
+        "golf_galaxy": "https://www.golfgalaxy.com/"
+      }
+    },
+    {
+      "id": "quick_switch",
+      "brand": "Mizuno",
+      "name": "Quick Switch Hosel",
+      "compatible_models": ["ST-MAX 240", "ST-Z 240", "ST-X 230", "ST-Z 230", "ST-G 220"],
+      "tip_size": ".335",
+      "adjustable": true,
+      "loft_adjustment": "±2°",
+      "lie_adjustment": "Standard/Upright",
+      "description": "Mizuno's Quick Switch adjustable hosel. 4 loft positions with 2 lie settings each for 8 total configurations.",
+      "purchase_links": {
+        "mizuno": "https://mizunogolf.com/",
+        "golf_galaxy": "https://www.golfgalaxy.com/"
+      }
+    },
+    {
+      "id": "srixon_qts",
+      "brand": "Srixon",
+      "name": "Quick Tune System (QTS)",
+      "compatible_models": ["ZX5 MK III", "ZX7 MK III", "ZX5 MK II", "ZX7 MK II"],
+      "tip_size": ".335",
+      "adjustable": true,
+      "loft_adjustment": "±1°",
+      "lie_adjustment": "Flat/Standard/Upright",
+      "description": "Srixon's Quick Tune System for loft and lie adjustment. 12 positions total. Compatible with Srixon/Cleveland drivers.",
+      "purchase_links": {
+        "srixon": "https://www.srixon.com/",
+        "golf_galaxy": "https://www.golfgalaxy.com/"
+      }
+    }
+  ],
+  "compatibility_notes": {
+    "universal_tip": "All modern driver shafts use .335\" tip diameter. Any shaft will physically fit any adapter.",
+    "adapter_requirement": "When buying an aftermarket shaft, you need an adapter that matches your head's brand/system.",
+    "adapter_cost": "Aftermarket adapters typically cost $15-40. OEM adapters may cost more.",
+    "torque_matters": "Shaft tip installation requires proper torque (typically 30-40 in-lbs). Over-tightening can damage threads.",
+    "epoxy_tip": "Adapters are epoxied to the shaft. Changing heads is easy; changing adapters requires re-tipping."
+  }
+}

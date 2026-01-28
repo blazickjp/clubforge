@@ -5,7 +5,7 @@ import shaftsData from '../../../data/shafts.json';
 const shafts = shaftsData.shafts;
 const brands = [...new Set(shafts.map(s => s.brand))];
 
-const launchColors = {
+const launchColors: Record<string, string> = {
   low: 'bg-blue-100 text-blue-700',
   mid: 'bg-green-100 text-green-700',
   'mid-low': 'bg-teal-100 text-teal-700',
@@ -13,7 +13,7 @@ const launchColors = {
   high: 'bg-orange-100 text-orange-700',
 };
 
-const spinColors = {
+const spinColors: Record<string, string> = {
   low: 'bg-blue-100 text-blue-700',
   mid: 'bg-green-100 text-green-700',
   'mid-low': 'bg-teal-100 text-teal-700',

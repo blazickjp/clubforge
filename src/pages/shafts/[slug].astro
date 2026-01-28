@@ -1,0 +1,165 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import shaftsData from '../../../data/shafts.json';
+import headsData from '../../../data/heads.json';
+
+export function getStaticPaths() {
+  return shaftsData.shafts.map(shaft => ({
+    params: { slug: shaft.slug },
+    props: { shaft }
+  }));
+}
+
+const { shaft } = Astro.props;
+const heads = headsData.club_heads;
+
+// All heads with matching tip size are compatible
+const compatibleHeads = heads.filter(h => h.tip_size === shaft.tip_size);
+
+const launchDescriptions: Record<string, string> = {
+  low: 'Produces a lower, more penetrating ball flight. Best for high spin players or those who launch too high.',
+  'mid-low': 'Slightly lower than mid launch with reduced spin. Good for players with naturally high launch.',
+  mid: 'Versatile launch profile that works for most players. A safe choice if unsure.',
+  'mid-high': 'Slightly higher launch with moderate spin. Helps players who need more carry.',
+  high: 'Maximum launch angle for players who need help getting the ball airborne. Adds carry distance.',
+};
+
+const spinDescriptions: Record<string, string> = {
+  low: 'Reduces spin for longer roll out. Best for high spin players or fast swing speeds.',
+  'mid-low': 'Slightly lower spin for added distance without sacrificing too much control.',
+  mid: 'Balanced spin rate suitable for most players.',
+  'mid-high': 'Moderate spin for added control and stopping power.',
+  high: 'Maximum spin for players who need more control and stopping power on approach.',
+};
+---
+
+<Layout 
+  title={shaft.full_name} 
+  description={`${shaft.full_name} shaft specs, compatible heads, and where to buy. ${shaft.launch} launch, ${shaft.spin} spin profile.`}
+>
+  <section class="py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Breadcrumb -->
+      <nav class="text-sm mb-6">
+        <a href="/shafts" class="text-green-600 hover:underline">Shafts</a>
+        <span class="mx-2 text-gray-400">/</span>
+        <span class="text-gray-600">{shaft.full_name}</span>
+      </nav>
+
+      <!-- Shaft Info -->
+      <div class="bg-white rounded-xl shadow-sm p-8 mb-8">
+        <div class="flex flex-col lg:flex-row gap-8">
+          <div class="flex-1">
+            <p class="text-green-600 font-medium mb-1">{shaft.brand}</p>
+            <h1 class="text-4xl font-bold mb-2">{shaft.model}</h1>
+            <p class="text-gray-600 text-lg mb-6">{shaft.description}</p>
+            
+            <!-- Specs Grid -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+              <div class="bg-gray-50 p-4 rounded-lg">
+                <p class="text-gray-500 text-sm">Tip Size</p>
+                <p class="font-semibold text-lg">{shaft.tip_size}"</p>
+              </div>
+              <div class="bg-gray-50 p-4 rounded-lg">
+                <p class="text-gray-500 text-sm">Torque</p>
+                <p class="font-semibold text-lg">{shaft.torque}°</p>
+              </div>
+              <div class="bg-gray-50 p-4 rounded-lg">
+                <p class="text-gray-500 text-sm">Kick Point</p>
+                <p class="font-semibold text-lg capitalize">{shaft.kick_point}</p>
+              </div>
+              <div class="bg-gray-50 p-4 rounded-lg">
+                <p class="text-gray-500 text-sm">Type</p>
+                <p class="font-semibold text-lg capitalize">{shaft.club_type}</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Launch/Spin Profile -->
+          <div class="lg:w-80">
+            <div class={`p-6 rounded-xl mb-4 ${
+              shaft.launch === 'low' ? 'bg-blue-50 border border-blue-200' :
+              shaft.launch === 'high' ? 'bg-orange-50 border border-orange-200' :
+              'bg-green-50 border border-green-200'
+            }`}>
+              <p class="text-sm font-medium text-gray-600 mb-1">Launch Profile</p>
+              <p class={`text-2xl font-bold capitalize mb-2 ${
+                shaft.launch === 'low' ? 'text-blue-700' :
+                shaft.launch === 'high' ? 'text-orange-700' :
+                'text-green-700'
+              }`}>{shaft.launch}</p>
+              <p class="text-sm text-gray-600">{launchDescriptions[shaft.launch]}</p>
+            </div>
+            
+            <div class={`p-6 rounded-xl ${
+              shaft.spin === 'low' ? 'bg-blue-50 border border-blue-200' :
+              shaft.spin === 'high' ? 'bg-orange-50 border border-orange-200' :
+              'bg-green-50 border border-green-200'
+            }`}>
+              <p class="text-sm font-medium text-gray-600 mb-1">Spin Profile</p>
+              <p class={`text-2xl font-bold capitalize mb-2 ${
+                shaft.spin === 'low' ? 'text-blue-700' :
+                shaft.spin === 'high' ? 'text-orange-700' :
+                'text-green-700'
+              }`}>{shaft.spin}</p>
+              <p class="text-sm text-gray-600">{spinDescriptions[shaft.spin]}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Available Options -->
+      <div class="bg-white rounded-xl shadow-sm p-8 mb-8">
+        <h2 class="text-xl font-bold mb-4">Available Options</h2>
+        <div class="grid md:grid-cols-2 gap-6">
+          <div>
+            <p class="text-gray-600 mb-3">Flex Options</p>
+            <div class="flex flex-wrap gap-2">
+              {shaft.flex_options.map(flex => (
+                <span class="px-4 py-2 bg-gray-100 rounded-lg font-medium">{flex}</span>
+              ))}
+            </div>
+          </div>
+          <div>
+            <p class="text-gray-600 mb-3">Weight Options (grams)</p>
+            <div class="flex flex-wrap gap-2">
+              {shaft.weight_options.map(weight => (
+                <span class="px-4 py-2 bg-gray-100 rounded-lg font-medium">{weight}g</span>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Compatible Heads -->
+      <div class="mb-8">
+        <h2 class="text-2xl font-bold mb-4">Compatible Club Heads ({compatibleHeads.length})</h2>
+        <p class="text-gray-600 mb-6">The {shaft.model} fits all these drivers with the appropriate adapter.</p>
+        
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+          {compatibleHeads.map(head => (
+            <a 
+              href={`/heads/${head.slug}`}
+              class="bg-white rounded-lg shadow-sm p-4 hover:shadow-md transition-all border border-gray-100 text-center"
+            >
+              <p class="text-sm text-gray-500 capitalize">{head.brand_id}</p>
+              <h3 class="font-semibold">{head.model}</h3>
+            </a>
+          ))}
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div class="bg-green-700 text-white rounded-xl p-8 text-center">
+        <h2 class="text-2xl font-bold mb-2">Build with the {shaft.model}</h2>
+        <p class="text-green-100 mb-4">Pair this shaft with your favorite head and compare prices.</p>
+        <a 
+          href="/build" 
+          class="inline-block bg-white text-green-700 font-bold px-6 py-3 rounded-lg hover:bg-green-50 transition-colors"
+        >
+          Start Building →
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>

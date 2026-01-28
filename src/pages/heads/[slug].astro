@@ -1,0 +1,132 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import headsData from '../../../data/heads.json';
+import shaftsData from '../../../data/shafts.json';
+
+export function getStaticPaths() {
+  return headsData.club_heads.map(head => ({
+    params: { slug: head.slug },
+    props: { head }
+  }));
+}
+
+const { head } = Astro.props;
+const shafts = shaftsData.shafts;
+
+// All shafts are compatible with .335 tip (which all our heads use)
+const compatibleShafts = shafts.filter(s => s.tip_size === head.tip_size);
+
+const brandNames: Record<string, string> = {
+  titleist: 'Titleist',
+  taylormade: 'TaylorMade', 
+  callaway: 'Callaway',
+  ping: 'PING',
+  cobra: 'Cobra'
+};
+---
+
+<Layout 
+  title={head.full_name} 
+  description={`Build a custom ${head.full_name} with compatible aftermarket shafts. Compare prices across retailers.`}
+>
+  <section class="py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Breadcrumb -->
+      <nav class="text-sm mb-6">
+        <a href="/heads" class="text-green-600 hover:underline">Heads</a>
+        <span class="mx-2 text-gray-400">/</span>
+        <span class="text-gray-600">{head.full_name}</span>
+      </nav>
+
+      <!-- Head Info -->
+      <div class="bg-white rounded-xl shadow-sm p-8 mb-8">
+        <div class="flex flex-col md:flex-row md:justify-between md:items-start gap-6">
+          <div>
+            <p class="text-green-600 font-medium mb-1">{brandNames[head.brand_id]}</p>
+            <h1 class="text-4xl font-bold mb-2">{head.model}</h1>
+            <p class="text-gray-600 text-lg mb-4">{head.description}</p>
+            
+            <div class="flex flex-wrap gap-4 text-sm">
+              <div class="bg-gray-100 px-3 py-2 rounded-lg">
+                <span class="text-gray-500">Year:</span>
+                <span class="font-medium ml-1">{head.year}</span>
+              </div>
+              <div class="bg-gray-100 px-3 py-2 rounded-lg">
+                <span class="text-gray-500">Adapter:</span>
+                <span class="font-medium ml-1 capitalize">{head.adapter_type.replace('_', ' ')}</span>
+              </div>
+              <div class="bg-gray-100 px-3 py-2 rounded-lg">
+                <span class="text-gray-500">Tip Size:</span>
+                <span class="font-medium ml-1">{head.tip_size}"</span>
+              </div>
+              {head.adjustable && (
+                <div class="bg-green-100 text-green-700 px-3 py-2 rounded-lg">
+                  ✓ Adjustable
+                </div>
+              )}
+            </div>
+          </div>
+
+          <div class="bg-green-50 border border-green-200 rounded-xl p-6 min-w-[200px]">
+            <p class="text-sm text-gray-600 mb-2">Available Lofts</p>
+            <div class="flex flex-wrap gap-2">
+              {head.loft_options.map(loft => (
+                <span class="px-4 py-2 bg-white border border-green-300 rounded-lg font-semibold text-green-700">
+                  {loft}°
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Compatible Shafts -->
+      <div class="mb-8">
+        <h2 class="text-2xl font-bold mb-4">Compatible Shafts ({compatibleShafts.length})</h2>
+        <p class="text-gray-600 mb-6">All these shafts fit the {head.full_name} with a {head.adapter_type.replace('_', ' ')} adapter.</p>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {compatibleShafts.map(shaft => (
+            <a 
+              href={`/shafts/${shaft.slug}`}
+              class="bg-white rounded-lg shadow-sm p-5 hover:shadow-md transition-all border border-gray-100 flex justify-between items-center"
+            >
+              <div>
+                <h3 class="font-semibold">{shaft.full_name}</h3>
+                <p class="text-sm text-gray-500">{shaft.brand}</p>
+              </div>
+              <div class="flex gap-2">
+                <span class={`px-2 py-1 rounded text-xs font-medium ${
+                  shaft.launch === 'low' ? 'bg-blue-100 text-blue-700' :
+                  shaft.launch === 'high' ? 'bg-orange-100 text-orange-700' :
+                  'bg-green-100 text-green-700'
+                }`}>
+                  {shaft.launch}
+                </span>
+                <span class={`px-2 py-1 rounded text-xs font-medium ${
+                  shaft.spin === 'low' ? 'bg-blue-100 text-blue-700' :
+                  shaft.spin === 'high' ? 'bg-orange-100 text-orange-700' :
+                  'bg-green-100 text-green-700'
+                }`}>
+                  {shaft.spin} spin
+                </span>
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div class="bg-green-700 text-white rounded-xl p-8 text-center">
+        <h2 class="text-2xl font-bold mb-2">Ready to build with the {head.model}?</h2>
+        <p class="text-green-100 mb-4">Use our builder to select your shaft, grip, and compare prices.</p>
+        <a 
+          href="/build" 
+          class="inline-block bg-white text-green-700 font-bold px-6 py-3 rounded-lg hover:bg-green-50 transition-colors"
+        >
+          Start Building →
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>
